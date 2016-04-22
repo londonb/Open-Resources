@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupUI(findViewById(R.id.parentContainer));
         ButterKnife.bind(this);
 
         mSubmitButton.setOnClickListener(new View.OnClickListener(){
