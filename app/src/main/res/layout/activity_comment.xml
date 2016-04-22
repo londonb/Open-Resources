@@ -9,13 +9,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.guest.openresources.CommentActivity">
 
-<<<<<<< HEAD
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-=======
->>>>>>> cadf7c5a1732aa26584b9dc0f215fe78b3e0b223
+
 </RelativeLayout>
