@@ -14,7 +14,9 @@ import android.widget.EditText;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
     public static final String TAG = MainActivity.class.getSimpleName();
 
     @Bind(R.id.submitButton) Button mSubmitButton;
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setupUI(findViewById(R.id.parentContainer));
         ButterKnife.bind(this);
 
+
         mSubmitButton.setOnClickListener(this);
     }
 
@@ -57,11 +60,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 if (v == mSubmitButton){
+
                 String userName = mUserNameText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
                 intent.putExtra("userName", userName);
                 startActivity(intent);
             }
+
         };
-    }
+}
+
+
+
 

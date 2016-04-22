@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SearchActivity" />
+
         <activity android:name=".CommentActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
