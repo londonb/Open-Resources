@@ -1,0 +1,4 @@
+a1-User login. Also allow option to sign in without being a user, but can't leave a comment. 
+a2-Google Maps/Yelp page (shows places nearby that could be helpful).
+a2-(Maybe)Allow user to place a marker on map and be stored in a database.
+a3-Place to leave a comment
