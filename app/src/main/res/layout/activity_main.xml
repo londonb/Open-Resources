@@ -64,11 +64,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/verbEditText"
-                android:hint="Enter a verb" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Enter Password"
+                android:id="@+id/textView2"
+                android:gravity="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -77,10 +79,9 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/animalEditText"
-                android:hint="Enter an animal" />
+                android:id="@+id/UserPasswordText" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,11 +89,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/adjectiveEditText"
-                android:hint="Enter an adjective" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="You may also use this app without signing in. But you will not be able to leave any comments."
+                android:id="@+id/textView3"
+                android:gravity="center" />
         </LinearLayout>
     </LinearLayout>
 
@@ -107,7 +110,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Generate an Exciting Story..."
+            android:text="Start searching"
             android:id="@+id/submitEntriesButton"
             android:layout_marginBottom="0dp"
             android:background="@color/colorAccent"
