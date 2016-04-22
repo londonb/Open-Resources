@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/portlandmap"
-            android:id="@+id/imageButton"
+            android:id="@+id/addCommentButton"
             android:cropToPadding="true"
             android:adjustViewBounds="true"
             android:layout_alignParentLeft="true"
