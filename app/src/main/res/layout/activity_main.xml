@@ -111,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start searching"
-            android:id="@+id/submitEntriesButton"
+            android:id="@+id/submitButton"
             android:layout_marginBottom="0dp"
             android:background="@color/colorAccent"
             android:textColor="@color/colorTextIcons" />
