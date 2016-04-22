@@ -15,6 +15,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = MainActivity.class.getSimpleName();
+
     @Bind(R.id.submitButton) Button mSubmitButton;
     @Bind(R.id.UserNameText) EditText mUserNameText;
 
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String userName = mUserNameText.getText().toString();
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("userName", userName);
                 startActivity(intent);
             }
         });
