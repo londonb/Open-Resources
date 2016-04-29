@@ -19,6 +19,7 @@ You will need the following programs installed on your computer.
 * Run `git clone https://github.com/londonb/Open-Resources.git
 * Navigate to ~/AndroidStudioProjects/OpenResources
 * Run on either an emulator or an Android OS Device connected to a computer
+* If you decide to run on an emulator, make sure you manually put in the coordinates in the options (the one with the three dots) section
 
 
 ## Technologies Used
