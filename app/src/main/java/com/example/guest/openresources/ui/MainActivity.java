@@ -1,4 +1,4 @@
-package com.example.guest.openresources;
+package com.example.guest.openresources.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.guest.openresources.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if (v == mSubmitButton){
 
                 String userName = mUserNameText.getText().toString();
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
                 intent.putExtra("userName", userName);
                 startActivity(intent);
             }

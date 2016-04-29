@@ -1,4 +1,4 @@
-package com.example.guest.openresources;
+package com.example.guest.openresources.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guest.openresources.R;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -23,8 +22,8 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final String TAG = SearchActivity.class.getSimpleName();
+public class NewSpotActivity extends AppCompatActivity implements View.OnClickListener {
+    public static final String TAG = NewSpotActivity.class.getSimpleName();
     private String latLong;
 
     private PlacePicker.IntentBuilder builder;
@@ -32,7 +31,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     @Bind(R.id.pickerBtn) Button mPickerBtn;
     @Bind(R.id.myLocation) AutoCompleteTextView mMyLocation;
     @Bind(R.id.commentEditText) EditText mCommentEditText;
-    @Bind(R.id.userNameGreet) TextView mUserNameGreet;
     @Bind(R.id.addCommentButton)Button mAddCommentButton;
 
 
@@ -40,7 +38,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_newspot);
         ButterKnife.bind(this);
         builder = new PlacePicker.IntentBuilder();
         mPickerBtn.setOnClickListener(this);
@@ -50,9 +48,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
         mAddCommentButton.setOnClickListener(this);
 
-        Intent intent = getIntent();
-        String userName = intent.getStringExtra("userName");
-        mUserNameGreet.setText("Hello " + userName + ".");
 
 
 
@@ -62,12 +57,12 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         if(v == mPickerBtn) {
             try {
                 builder = new PlacePicker.IntentBuilder();
-                Intent intent = builder.build(SearchActivity.this);
+                Intent intent = builder.build(NewSpotActivity.this);
                 startActivityForResult(intent, PLACE_PICKER_FLAG);
             } catch (GooglePlayServicesRepairableException e) {
-                GooglePlayServicesUtil.getErrorDialog(e.getConnectionStatusCode(), SearchActivity.this, 0);
+                GooglePlayServicesUtil.getErrorDialog(e.getConnectionStatusCode(), NewSpotActivity.this, 0);
             } catch (GooglePlayServicesNotAvailableException e) {
-                Toast.makeText(SearchActivity.this, "Google Play Services is not available.",
+                Toast.makeText(NewSpotActivity.this, "Google Play Services is not available.",
                         Toast.LENGTH_LONG)
                         .show();
             }
@@ -75,7 +70,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         if(v == mAddCommentButton) {
            String comment = mCommentEditText.getText().toString();
 
-            Intent intent = new Intent(SearchActivity.this, CommentActivity.class);
+            Intent intent = new Intent(NewSpotActivity.this, CommentActivity.class);
             startActivity(intent);
         }
     }

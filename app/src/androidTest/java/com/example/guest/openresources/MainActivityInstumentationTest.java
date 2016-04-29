@@ -2,6 +2,8 @@ package com.example.guest.openresources;
 
 import android.support.test.rule.ActivityTestRule;
 
+import com.example.guest.openresources.ui.MainActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 

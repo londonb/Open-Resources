@@ -1,9 +1,11 @@
-package com.example.guest.openresources;
+package com.example.guest.openresources.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.guest.openresources.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
