@@ -13,7 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.guest.openresources.Constants;
+import com.example.guest.openresources.Models.Location;
 import com.example.guest.openresources.R;
+import com.firebase.client.Firebase;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -87,7 +90,14 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
         dialogBuilder.setTitle("New Location");
         dialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                //save info
+                String newNamePlace = namePlace.getText().toString();
+                String newComment = comment.getText().toString();
+                String newLatLong = latLong.toString();
+
+                Location newLocation = new Location(newNamePlace,newComment, newLatLong);
+
+
+                saveLocationToFirebase(newLocation);
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -97,6 +107,10 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
         });
         AlertDialog b =dialogBuilder.create();
         b.show();
+    }
+    public void saveLocationToFirebase(Location location) {
+        Firebase addedPostRef = new Firebase(Constants.FIREBASE_URL_LOCATIONS);
+        addedPostRef.push().setValue(location);
     }
 
     @Override
