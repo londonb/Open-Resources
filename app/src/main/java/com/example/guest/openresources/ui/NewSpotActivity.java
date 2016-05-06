@@ -1,9 +1,12 @@
 package com.example.guest.openresources.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -68,11 +71,32 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
         if(v == mAddCommentButton) {
-           String comment = mCommentEditText.getText().toString();
-
-            Intent intent = new Intent(NewSpotActivity.this, CommentActivity.class);
-            startActivity(intent);
+           showNewPostDialog();
         }
+    }
+
+    public void showNewPostDialog() {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText namePlace = (EditText) dialogView.findViewById(R.id.newPostTitleEditText);
+        final EditText comment = (EditText) dialogView.findViewById(R.id.newPostBodyEditText);
+
+        dialogBuilder.setTitle("New Location");
+        dialogBuilder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //save info
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //cancel
+            }
+        });
+        AlertDialog b =dialogBuilder.create();
+        b.show();
     }
 
     @Override
