@@ -34,6 +34,7 @@ public class LocationsActivity extends FragmentActivity implements OnMapReadyCal
     double lat;
     double lng;
     String namePlace;
+    String comment;
 
 
     @Override
@@ -67,6 +68,7 @@ public class LocationsActivity extends FragmentActivity implements OnMapReadyCal
                 Map data = (Map) dataSnapshot.getValue();
                 lat = (double) data.get("lat");
                 lng = (double) data.get("lng");
+                comment = (String) data.get("comment");
                 namePlace = (String) data.get("namePlace");
                 LatLng mLatlng = new LatLng(lat, lng);
                 Log.d(TAG, "latlong from database: " + mLatlng);
@@ -75,6 +77,7 @@ public class LocationsActivity extends FragmentActivity implements OnMapReadyCal
 
                 MarkerOptions mMarkerOption = new MarkerOptions()
                         .title(namePlace)
+                        .snippet(comment)
                         .position(mLatlng);
                 Marker mMarker = mMap.addMarker(mMarkerOption);
                 //mMap.addMarker(mMarkerOption);
