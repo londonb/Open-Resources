@@ -1,5 +1,7 @@
 package com.example.guest.openresources.Models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import org.parceler.Parcel;
 import org.w3c.dom.Comment;
 
@@ -13,30 +15,32 @@ import java.util.List;
 public class Location {
     String namePlace;
     String comment;
-    String latLong;
+    double lat;
+    double lng;
 
     public Location() {}
 
-    public Location (String namePlace,String comment, String latLong) {
+    public Location (String namePlace,String comment, double lat, double lng) {
         this.namePlace = namePlace;
-        this.latLong = latLong;
         this.comment = comment;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public String getNamePlace() {
         return namePlace;
     }
 
-    public String getLatLong() {
-        return latLong;
+    public double getLat() {
+        return lat;
     }
 
     public void setNamePlace(String namePlace) {
         this.namePlace = namePlace;
     }
 
-    public void setLatLong(String latLong) {
-        this.latLong = latLong;
+    public void setLat(double lat) {
+        this.lat = lat;
     }
 
     public String getComment() {
@@ -44,5 +48,13 @@ public class Location {
     }
 
     public void setComment(String comment) {this.comment = comment;}
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
 
 }

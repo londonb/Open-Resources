@@ -30,7 +30,8 @@ import butterknife.ButterKnife;
 
 public class NewSpotActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = NewSpotActivity.class.getSimpleName();
-    private String latLong;
+    private double lat;
+    private double lng;
 
     private PlacePicker.IntentBuilder builder;
     private static final int PLACE_PICKER_FLAG = 1;
@@ -92,9 +93,10 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
             public void onClick(DialogInterface dialog, int whichButton) {
                 String newNamePlace = namePlace.getText().toString();
                 String newComment = comment.getText().toString();
-                String newLatLong = latLong.toString();
+                double newLat = lat;
+                double newLng = lng;
 
-                Location newLocation = new Location(newNamePlace,newComment, newLatLong);
+                Location newLocation = new Location(newNamePlace,newComment, newLat, newLng);
 
 
                 saveLocationToFirebase(newLocation);
@@ -120,11 +122,14 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
             switch (requestCode) {
                 case PLACE_PICKER_FLAG:
                     Place place = PlacePicker.getPlace(this, intent);
-                    latLong = place.getLatLng().toString();
-                    latLong = latLong.substring(10);
-                    latLong = latLong.substring(0, latLong.length() - 1);
-                    Log.d(TAG, latLong);
-                    mMyLocation.setText(place.getName() + ", " + place.getAddress());
+                     lat = place.getLatLng().latitude;
+                     lng = place.getLatLng().longitude;
+                    Log.d(TAG, "latlong from google: " + place.getLatLng());
+//                    latLong = place.getLatLng().toString();
+//                    latLong = latLong.substring(10);
+//                    latLong = latLong.substring(0, latLong.length() - 1);
+//                    Log.d(TAG, latLong);
+//                    mMyLocation.setText(place.getName() + ", " + place.getAddress());
                     break;
             }
         }
