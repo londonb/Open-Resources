@@ -4,10 +4,14 @@ import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.guest.openresources.Constants;
 import com.example.guest.openresources.R;
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.firebase.client.Query;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -15,13 +19,20 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Map;
+
 public class LocationsActivity extends FragmentActivity implements OnMapReadyCallback {
+    public static final String TAG = LocationsActivity.class.getSimpleName();
 
     private GoogleMap mMap;
     private Firebase mFirebaseLocationsRef;
     private Query mQuery;
+    double lat;
+    double lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +48,53 @@ public class LocationsActivity extends FragmentActivity implements OnMapReadyCal
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-//        drawLocations();
-        LatLng sydney = new LatLng(45.5231, -122.677);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Waterfront Park"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        drawLocations();
+//        LatLng sydney = new LatLng(45.5231, -122.677);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Waterfront Park"));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
-//    private void drawLocations() {
-//        LatLng latLong = mFirebaseLocationsRef.getLatLong;
-//        mQuery = new Firebase(latLong);
-//        MarkerOptions mMarkerOptions = new MarkerOptions()
-//            .position(latLong);
-//    }
+    private void drawLocations() {
+        Query queryRef = new Firebase(Constants.FIREBASE_URL_LOCATIONS);
+
+        queryRef.addChildEventListener(new ChildEventListener() {
+            LatLngBounds bounds;
+            LatLngBounds.Builder builder = new LatLngBounds.Builder();
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Map data = (Map) dataSnapshot.getValue();
+                LatLng mLatlng = new LatLng(lat, lng);
+                Log.d(TAG, "latlong from google: " + mLatlng);
+                builder.include(mLatlng);
+                bounds = builder.build();
+
+                MarkerOptions mMarkerOption = new MarkerOptions()
+                        .position(mLatlng);
+                Marker mMarker = mMap.addMarker(mMarkerOption);
+                mMap.addMarker(mMarkerOption);
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+    }
 }

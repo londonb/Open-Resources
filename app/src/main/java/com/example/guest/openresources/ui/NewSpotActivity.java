@@ -96,6 +96,7 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
                 double newLat = lat;
                 double newLng = lng;
 
+
                 Location newLocation = new Location(newNamePlace,newComment, newLat, newLng);
 
 
@@ -125,11 +126,7 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
                      lat = place.getLatLng().latitude;
                      lng = place.getLatLng().longitude;
                     Log.d(TAG, "latlong from google: " + place.getLatLng());
-//                    latLong = place.getLatLng().toString();
-//                    latLong = latLong.substring(10);
-//                    latLong = latLong.substring(0, latLong.length() - 1);
-//                    Log.d(TAG, latLong);
-//                    mMyLocation.setText(place.getName() + ", " + place.getAddress());
+                    mMyLocation.setText(place.getName() + ", " + place.getAddress());
                     break;
             }
         }
