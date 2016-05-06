@@ -27,12 +27,14 @@ import java.util.Map;
 
 public class LocationsActivity extends FragmentActivity implements OnMapReadyCallback {
     public static final String TAG = LocationsActivity.class.getSimpleName();
-
+    private static final int MAP_ZOOM_LEVEL = 12;
     private GoogleMap mMap;
     private Firebase mFirebaseLocationsRef;
     private Query mQuery;
     double lat;
     double lng;
+    String namePlace;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +65,21 @@ public class LocationsActivity extends FragmentActivity implements OnMapReadyCal
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Map data = (Map) dataSnapshot.getValue();
+                lat = (double) data.get("lat");
+                lng = (double) data.get("lng");
+                namePlace = (String) data.get("namePlace");
                 LatLng mLatlng = new LatLng(lat, lng);
-                Log.d(TAG, "latlong from google: " + mLatlng);
+                Log.d(TAG, "latlong from database: " + mLatlng);
                 builder.include(mLatlng);
                 bounds = builder.build();
 
                 MarkerOptions mMarkerOption = new MarkerOptions()
+                        .title(namePlace)
                         .position(mLatlng);
                 Marker mMarker = mMap.addMarker(mMarkerOption);
-                mMap.addMarker(mMarkerOption);
+                //mMap.addMarker(mMarkerOption);
+                mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds,
+                        MAP_ZOOM_LEVEL));
 
             }
 

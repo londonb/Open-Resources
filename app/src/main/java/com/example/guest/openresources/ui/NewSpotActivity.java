@@ -25,6 +25,9 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -95,6 +98,7 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
                 String newComment = comment.getText().toString();
                 double newLat = lat;
                 double newLng = lng;
+
 
 
                 Location newLocation = new Location(newNamePlace,newComment, newLat, newLng);
