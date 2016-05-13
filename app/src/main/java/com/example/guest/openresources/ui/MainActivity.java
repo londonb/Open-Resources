@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.guest.openresources.R;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.submitButton) Button mSubmitButton;
     @Bind(R.id.UserNameText) EditText mUserNameText;
+    @Bind(R.id.registerTextView) TextView mRegisterTextView;
 
     public void hideKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         setupUI(findViewById(R.id.parentContainer));
         ButterKnife.bind(this);
+        mRegisterTextView.setOnClickListener(this);
 
 
         mSubmitButton.setOnClickListener(this);
@@ -68,6 +71,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("userName", userName);
                 startActivity(intent);
             }
+                if (v == mRegisterTextView) {
+                    Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
 
         };
 }
