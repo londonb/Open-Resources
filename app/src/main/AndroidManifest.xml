@@ -33,7 +33,8 @@
                 android:value=".ui.NewSpotActivity" />
         </activity>
         <activity android:name=".ui.WelcomeActivity" />
-        <activity android:name=".ui.LocationsActivity"></activity>
+        <activity android:name=".ui.LocationsActivity" />
+        <activity android:name=".ui.CreateAccountActivity"></activity>
     </application>
 
 </manifest>
