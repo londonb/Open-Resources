@@ -14,10 +14,11 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Hello"
+        android:gravity="center"
         android:id="@+id/userNameGreet"
 
-        android:layout_marginRight="229dp"
-        android:layout_marginEnd="229dp" />
+        android:layout_alignRight="@+id/SeeButton"
+        android:layout_alignEnd="@+id/SeeButton" />
 
     <Button
         android:layout_width="match_parent"

@@ -40,7 +40,6 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
     private static final int PLACE_PICKER_FLAG = 1;
     @Bind(R.id.pickerBtn) Button mPickerBtn;
     @Bind(R.id.myLocation) AutoCompleteTextView mMyLocation;
-    @Bind(R.id.commentEditText) EditText mCommentEditText;
     @Bind(R.id.addCommentButton)Button mAddCommentButton;
 
 

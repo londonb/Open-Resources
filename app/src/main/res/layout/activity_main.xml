@@ -93,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="You may also use this app without signing in. But you will not be able to leave any comments."
+                android:text="You may also use this app without signing in, but you will not be able to leave any comments."
                 android:id="@+id/textView3"
                 android:gravity="center" />
         </LinearLayout>

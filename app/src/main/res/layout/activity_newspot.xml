@@ -22,16 +22,9 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Hello"
             android:id="@+id/userNameGreet"
-
             android:layout_marginRight="229dp"
             android:layout_marginEnd="229dp" />
 
-        <AutoCompleteTextView
-            android:id="@+id/myLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pick a location first"
-            android:inputType="textMultiLine" />
 
         <Button
             android:id="@+id/pickerBtn"
@@ -42,14 +35,15 @@
             android:text="Pick Location"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            />
 
-        <EditText
+        <AutoCompleteTextView
+            android:id="@+id/myLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:id="@+id/commentEditText" />
+            android:hint="Pick a location first"
+            android:inputType="textMultiLine" />
+
 
         <Button
             android:layout_width="match_parent"
