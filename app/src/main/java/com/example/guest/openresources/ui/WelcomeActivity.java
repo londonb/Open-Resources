@@ -13,8 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.userNameGreet)
-    TextView mUserNameGreet;
+    
     @Bind(R.id.SeeButton)Button mSeeButton;
     @Bind(R.id.AddButton) Button mAddButton;
 
@@ -26,7 +25,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent intent = getIntent();
         String userName = intent.getStringExtra("userName");
-        mUserNameGreet.setText("Hello " + userName + ".");
+
 
         mSeeButton.setOnClickListener(this);
         mAddButton.setOnClickListener(this);

@@ -1,5 +1,6 @@
 package com.example.guest.openresources.ui;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -36,10 +37,18 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         ButterKnife.bind(this);
         mFireBaseRef = new Firebase(Constants.FIREBASE_URL);
         mCreateUserButton.setOnClickListener(this);
+        mLoginTextView.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+        if (view == mLoginTextView) {
+            Intent intent = new Intent(CreateAccountActivity.this, WelcomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
         if (view == mCreateUserButton) {
             createNewUser();
         }

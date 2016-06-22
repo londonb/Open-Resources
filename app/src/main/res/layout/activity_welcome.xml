@@ -9,23 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.guest.openresources.ui.WelcomeActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hello"
-        android:gravity="center"
-        android:id="@+id/userNameGreet"
-
-        android:layout_alignRight="@+id/SeeButton"
-        android:layout_alignEnd="@+id/SeeButton" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="See Places"
         android:id="@+id/SeeButton"
-        android:layout_below="@+id/userNameGreet"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAccent"
         android:layout_marginTop="146dp" />
