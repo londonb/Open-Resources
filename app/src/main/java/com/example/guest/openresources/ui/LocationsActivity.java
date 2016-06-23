@@ -1,7 +1,10 @@
 package com.example.guest.openresources.ui;
 
+import android.Manifest;
 import android.app.FragmentTransaction;
+import android.content.pm.PackageManager;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,9 +55,11 @@ public class LocationsActivity extends FragmentActivity implements OnMapReadyCal
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         drawLocations();
-//        LatLng sydney = new LatLng(45.5231, -122.677);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Waterfront Park"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+        }
+//       
     }
 
     private void drawLocations() {
