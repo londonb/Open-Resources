@@ -13,7 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
-    
+
     @Bind(R.id.SeeButton)Button mSeeButton;
     @Bind(R.id.AddButton) Button mAddButton;
 

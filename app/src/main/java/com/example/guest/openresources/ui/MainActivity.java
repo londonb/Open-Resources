@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mRegisterTextView.setOnClickListener(this);
 
 
+
         mSubmitButton.setOnClickListener(this);
     }
 

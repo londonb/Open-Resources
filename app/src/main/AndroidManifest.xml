@@ -26,15 +26,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.NewSpotActivity" />
+        <activity android:name=".ui.NewSpotActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".ui.MainActivity">
+
+        </meta-data>
+        </activity>
         <activity android:name=".ui.CommentActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.NewSpotActivity" />
+
         </activity>
         <activity android:name=".ui.WelcomeActivity" />
         <activity android:name=".ui.LocationsActivity" />
-        <activity android:name=".ui.CreateAccountActivity"></activity>
+        <activity android:name=".ui.CreateAccountActivity"/>
+
+
     </application>
 
 </manifest>

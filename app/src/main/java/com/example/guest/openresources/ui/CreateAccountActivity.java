@@ -39,6 +39,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mCreateUserButton.setOnClickListener(this);
         mLoginTextView.setOnClickListener(this);
 
+
     }
 
     @Override
