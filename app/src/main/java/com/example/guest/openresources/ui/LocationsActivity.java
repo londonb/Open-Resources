@@ -59,7 +59,7 @@ public class LocationsActivity extends FragmentActivity implements OnMapReadyCal
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
         }
-//       
+//
     }
 
     private void drawLocations() {
