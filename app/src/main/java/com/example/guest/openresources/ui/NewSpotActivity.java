@@ -104,6 +104,8 @@ public class NewSpotActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 saveLocationToFirebase(newLocation);
+                Intent intent = new Intent(NewSpotActivity.this, WelcomeActivity.class);
+                startActivity(intent);
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
